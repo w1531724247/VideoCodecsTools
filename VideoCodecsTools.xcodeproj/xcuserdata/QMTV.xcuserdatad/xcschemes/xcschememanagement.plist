@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>MediaCapture.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>VideoCodecsTools.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>576B0F5A1DAE1AD800370460</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>576B0F701DAE1AD800370460</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>576B0F7B1DAE1AD800370460</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57EC11221DB0B42200F29AA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57EC113A1DB0B42200F29AA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>57EC11451DB0B42200F29AA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

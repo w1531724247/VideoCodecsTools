@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5702A4241DAF2F0D00DBD695 /* FLVVideoTag+SPSPPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 5702A4231DAF2F0D00DBD695 /* FLVVideoTag+SPSPPS.m */; };
 		5702A4271DAF555800DBD695 /* ConvertTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 5702A4261DAF555800DBD695 /* ConvertTools.m */; };
+		5707A5521DB5EE4000122385 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5707A5511DB5EE4000122385 /* VideoToolbox.framework */; };
+		5707A5571DB5EF2500122385 /* HardwareVideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5707A5561DB5EF2500122385 /* HardwareVideoEncoder.m */; };
 		57098F9B1DB0B54100661008 /* VideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 57098F9A1DB0B54100661008 /* VideoCapture.m */; };
 		57098F9E1DB0B55500661008 /* AudioCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 57098F9D1DB0B55500661008 /* AudioCapture.m */; };
 		57098FA21DB0B65200661008 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57098FA11DB0B65200661008 /* AVFoundation.framework */; };
@@ -79,6 +81,9 @@
 		5702A4231DAF2F0D00DBD695 /* FLVVideoTag+SPSPPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLVVideoTag+SPSPPS.m"; sourceTree = "<group>"; };
 		5702A4251DAF555800DBD695 /* ConvertTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertTools.h; sourceTree = "<group>"; };
 		5702A4261DAF555800DBD695 /* ConvertTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertTools.m; sourceTree = "<group>"; };
+		5707A5511DB5EE4000122385 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/VideoToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		5707A5551DB5EF2500122385 /* HardwareVideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareVideoEncoder.h; sourceTree = "<group>"; };
+		5707A5561DB5EF2500122385 /* HardwareVideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardwareVideoEncoder.m; sourceTree = "<group>"; };
 		57098F991DB0B54100661008 /* VideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCapture.h; sourceTree = "<group>"; };
 		57098F9A1DB0B54100661008 /* VideoCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCapture.m; sourceTree = "<group>"; };
 		57098F9C1DB0B55500661008 /* AudioCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioCapture.h; sourceTree = "<group>"; };
@@ -166,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5707A5521DB5EE4000122385 /* VideoToolbox.framework in Frameworks */,
 				57098FAC1DB0C0B000661008 /* CoreMedia.framework in Frameworks */,
 				57098FAA1DB0C0A900661008 /* CoreVideo.framework in Frameworks */,
 				57098FA81DB0C0A100661008 /* CoreGraphics.framework in Frameworks */,
@@ -190,6 +196,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5707A5531DB5EEC900122385 /* Codecs */ = {
+			isa = PBXGroup;
+			children = (
+				5707A5541DB5EEC900122385 /* Encoder */,
+			);
+			path = Codecs;
+			sourceTree = "<group>";
+		};
+		5707A5541DB5EEC900122385 /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				5707A5551DB5EF2500122385 /* HardwareVideoEncoder.h */,
+				5707A5561DB5EF2500122385 /* HardwareVideoEncoder.m */,
+			);
+			path = Encoder;
+			sourceTree = "<group>";
+		};
 		57098F981DB0B52100661008 /* Capture */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +236,7 @@
 		57098FA01DB0B65100661008 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5707A5511DB5EE4000122385 /* VideoToolbox.framework */,
 				57098FAB1DB0C0B000661008 /* CoreMedia.framework */,
 				57098FA91DB0C0A900661008 /* CoreVideo.framework */,
 				57098FA71DB0C0A100661008 /* CoreGraphics.framework */,
@@ -354,6 +378,7 @@
 		57EC11241DB0B42200F29AA3 /* MediaCapture */ = {
 			isa = PBXGroup;
 			children = (
+				5707A5531DB5EEC900122385 /* Codecs */,
 				57098F981DB0B52100661008 /* Capture */,
 				57EC11281DB0B42200F29AA3 /* AppDelegate.h */,
 				57EC11291DB0B42200F29AA3 /* AppDelegate.m */,
@@ -656,6 +681,7 @@
 			files = (
 				57098F9B1DB0B54100661008 /* VideoCapture.m in Sources */,
 				57EC112D1DB0B42200F29AA3 /* ViewController.m in Sources */,
+				5707A5571DB5EF2500122385 /* HardwareVideoEncoder.m in Sources */,
 				57EC112A1DB0B42200F29AA3 /* AppDelegate.m in Sources */,
 				57098FB01DB0C58900661008 /* CaptureSession.m in Sources */,
 				57EC11271DB0B42200F29AA3 /* main.m in Sources */,

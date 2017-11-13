@@ -27,7 +27,9 @@ typedef NS_ENUM( NSInteger, AVSetupResult) {
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoOutput;
 @property (nonatomic) dispatch_queue_t videoHandleQueue;
 @property (nonatomic, assign) AVSetupResult videoSetupResult;
+@property (nonatomic, strong) AVCaptureConnection *videoConnection;
 
+@property (nonatomic, strong) AVCaptureConnection *audioConnection;
 @property (nonatomic, assign) AVSetupResult audioSetupResult;
 @property (nonatomic, assign) BOOL setupResult;
 
@@ -93,11 +95,19 @@ typedef NS_ENUM( NSInteger, AVSetupResult) {
 
 #pragma mark ---- AVCaptureVideoDataOutputSampleBufferDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    NSLog(@"<INFO> 采集到一帧图像");
+    if (connection == self.videoConnection) {
+        NSLog(@"<INFO> 采集到一帧图像");
+    } else {
+        
+    }
 }
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didDropSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    NSLog(@"<INFO> 丢失了一帧图像");
+    if (connection == self.videoConnection) {
+        NSLog(@"<INFO> 丢失了一断声音数据");
+    } else {
+        
+    }
 }
 
 #pragma mark ---- private
@@ -164,6 +174,9 @@ typedef NS_ENUM( NSInteger, AVSetupResult) {
     if ([self.captureSession canAddOutput:self.videoOutput]) {
         [self.captureSession addOutput:self.videoOutput];  // 添加到Session
     }
+    
+    // 保存Connection，用于在SampleBufferDelegate中判断数据来源（是Video/Audio？）
+    self.videoConnection = [self.videoOutput connectionWithMediaType:AVMediaTypeVideo];
 }
 
 - (void)requireAccessCamera {
